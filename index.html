@@ -1,29 +1,117 @@
 <html>
 	<head>
-		<title>dirty sex site</title>
+		<title>Nothing rong with this website</title>
 		<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 
 	</head>
 	<body>
-		<a id="clicky" href="#">Give me a good old click</a>
 
 
+		<h1 id="numSplay"></h1>
+		<h4 id="babyNumSplay"></h4>
+
+		<table>
+			<tr>
+				<td>
+					<button onclick="numberPress(1)"><h2>1</h2></button>					
+				</td>
+				<td>
+					<button onclick="numberPress(2)"><h2>2</h2></button>					
+				</td>
+				<td>
+					<button onclick="numberPress(3)"><h2>3</h2></button>					
+				</td>
+				<td>
+					<button onclick="operationPress('add')"><h2>+</h2></button>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<button onclick="numberPress(4)"><h2>4</h2></button>					
+				</td>
+				<td>
+					<button onclick="numberPress(5)"><h2>5</h2></button>					
+				</td>
+				<td>
+					<button onclick="numberPress(6)"><h2>6</h2></button>					
+				</td>
+				<td>
+					<button onclick="operationPress('subtract')"><h2>-</h2></button>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<button onclick="numberPress(7)"><h2>7</h2></button>					
+				</td>
+				<td>
+					<button onclick="numberPress(8)"><h2>8</h2></button>					
+				</td>
+				<td>
+					<button onclick="numberPress(9)"><h2>9</h2></button>					
+				</td>
+				<td>
+					<button onclick="operationPress('multiply')"><h2>*</h2></button>
+				</td>
+			</tr>
+			<tr>
+				
+				<td colspan="2">
+					<button onclick="numberPress(0)"><h2>0</h2></button>					
+				</td>
+				<td>
+									
+				</td>
+				<td>
+					<button onclick="operationPress('divide')"><h2>/</h2></button>
+				</td>
+			</tr>
+		</table>
 
 		<script type="text/javascript">
-			var cnt = 0;
 
-			$(function() {
-				$('#clicky').on('click', function(){
-					console.log('you prick, you gone done click');
+				var displayNumber = 0;
+				var storedNumber; 
 
-					cnt++;
+				function add (currentNumber, numberToAdd) {
 
-					if (cnt == 10){
-						alert('a ten time prick click');
-						cnt = 0;
+					return currentNumber + numberToAdd;
+				}
+				function subtract (currentNumber, numberToSubtract){
+
+					return currentNumber - numberToSubtract;
+				}				
+				function divide (currentNumber, numberToDivideBy){
+
+					return currentNumber / numberToDivideBy;
+				}
+				function multiply (currentNumber, numberToMultiplyBy){
+					//smelly little thing
+					return currentNumber * numberToMultiplyBy;
+				}
+
+				function numberPress(pressedNumber) {
+					storedNumber = pressedNumber;
+
+					$('#babyNumSplay').text(storedNumber);
+
+				}
+
+
+				function operationPress(pressedOperation){
+					if (pressedOperation === 'add') {
+						displayNumber = add(displayNumber, storedNumber); 	
+					}  else if (pressedOperation === 'multiply')	{
+						displayNumber = multiply(displayNumber, storedNumber);
+					} else if (pressedOperation === 'divide') {
+						displayNumber = divide(displayNumber, storedNumber);
+					} else if (pressedOperation === 'subtract') {
+						displayNumber = subtract(displayNumber, storedNumber);
 					}
-				});
-			});
+
+					$('#numSplay').text(displayNumber);
+
+
+				}
 		</script>
 	</body>
 </html>
